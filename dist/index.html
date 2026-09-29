@@ -278,6 +278,19 @@ button{cursor:pointer;border:none;font-family:var(--font)}
 .dev-link svg{transition:transform .2s ease}
 .dev-badge:hover .dev-link svg{transform:translate(1.5px,-1.5px)}
 
+/* Hide Netlify drawer / feedback badge */
+iframe[id*="netlify"],
+iframe[src*="netlify"],
+iframe[class*="netlify"],
+div[id*="netlify"],
+div[class*="netlify-drawer"],
+.netlify-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 /* ── SCROLL REVEAL ── */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1)}
 .rv.l{transform:translateX(-28px)}
@@ -924,6 +937,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   const el=document.getElementById(a.getAttribute('href').slice(1));
   if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'})}
 }));
+
+/* REMOVE NETLIFY POPUP / DRAWER */
+(function(){
+  function rmNetlify(){
+    document.querySelectorAll('iframe[src*="netlify"], iframe[id*="netlify"], [id*="netlify-drawer"], [class*="netlify-drawer"], .netlify-badge').forEach(el=>el.remove());
+  }
+  rmNetlify();
+  if(window.MutationObserver){
+    new MutationObserver(rmNetlify).observe(document.documentElement, {childList:true, subtree:true});
+  }
+})();
 </script>
 </body>
 </html>
