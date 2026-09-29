@@ -267,8 +267,16 @@ button{cursor:pointer;border:none;font-family:var(--font)}
 .fc-title{font-size:11px;font-weight:700;color:var(--muted2);letter-spacing:.07em;text-transform:uppercase;margin-bottom:14px}
 .fl-link{display:block;color:rgba(255,255,255,.45);font-size:13.5px;margin-bottom:9px;transition:color .2s;font-weight:500}
 .fl-link:hover{color:var(--gold-l)}
-.footer-btm{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-top:1px solid var(--border);flex-wrap:wrap;gap:6px}
+.footer-btm{display:flex;align-items:center;justify-content:space-between;padding:18px 0;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
 .copy{color:var(--muted2);font-size:12px}
+.dev-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.03);border:1px solid var(--border);padding:5px 13px;border-radius:99px;font-size:12px;color:var(--muted);letter-spacing:.02em;transition:all .25s ease}
+.dev-badge:hover{border-color:rgba(201,147,58,.4);background:rgba(201,147,58,.06);box-shadow:0 2px 14px rgba(201,147,58,.15)}
+.dev-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold-glow);display:inline-block;animation:pulse-dot 2s infinite ease-in-out}
+@keyframes pulse-dot{0%,100%{opacity:.6;transform:scale(.9)}50%{opacity:1;transform:scale(1.15);box-shadow:0 0 10px rgba(201,147,58,.6)}}
+.dev-link{color:var(--gold-l);font-weight:600;display:inline-flex;align-items:center;gap:3px;transition:color .2s ease;text-decoration:none}
+.dev-link:hover{color:#fff}
+.dev-link svg{transition:transform .2s ease}
+.dev-badge:hover .dev-link svg{transform:translate(1.5px,-1.5px)}
 
 /* ── SCROLL REVEAL ── */
 .rv{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1)}
@@ -791,6 +799,14 @@ button{cursor:pointer;border:none;font-family:var(--font)}
     </div>
     <div class="footer-btm">
       <span class="copy">© 2025 Apex Coaching Centre · All rights reserved</span>
+      <div class="dev-badge">
+        <span class="dev-dot"></span>
+        <span>Developed by</span>
+        <a href="https://github.com/ksangam990-collab" target="_blank" rel="noopener noreferrer" class="dev-link">
+          Sangam Kumar
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+        </a>
+      </div>
       <span class="copy">Sakchi Main Road, Jamshedpur — 831001</span>
     </div>
   </div>
